@@ -16,9 +16,11 @@ export default class Feed extends Component {
             { id: '123', comment: 'Hi there!!', created: 1526825076842 },
             { id: '122', comment: 'Hi you!!!', created: 1226825076899 },
         ],
+        spinning: true,
     };
 
     render() {
+        const { spinning } = this.state;
         const { posts } = this.state;
         const postJSX = posts.map((post) => {
             return (
@@ -31,7 +33,7 @@ export default class Feed extends Component {
 
         return (
             <section className = { Styles.feed }>
-                <Spinner isSpinning />
+                <Spinner isSpinning = { spinning } />
                 <StatusBar />
                 <Composer />
                 {postJSX}
